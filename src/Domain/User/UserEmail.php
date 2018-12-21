@@ -23,6 +23,10 @@ final class UserEmail
     {
         $email = trim($email);
 
+        if(empty($email)){
+            throw new InvalidEmailException;
+        }
+
         $validator = Validation::createValidator();
         $emailConstraint = new Assert\Email();
         $errors = $validator->validate(

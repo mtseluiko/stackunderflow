@@ -16,6 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
 /** @ORM\Embeddable */
 final class UserName
 {
+    const MIN_USER_NAME_LENGTH = 3;
     const MAX_USER_NAME_LENGTH = 20;
 
     /** @ORM\Column(type="string",name="name") */
@@ -29,7 +30,10 @@ final class UserName
             throw new UserNameEmptyException;
         }
 
-        if ($nameLength > self::MAX_USER_NAME_LENGTH) {
+        if (
+            $nameLength < self::MIN_USER_NAME_LENGTH ||
+            $nameLength > self::MAX_USER_NAME_LENGTH
+        ) {
             throw new UserNameIncorrectLengthException;
         }
 

@@ -16,7 +16,7 @@ final class UserProfile
     /** @ORM\Embedded(class="UserName",columnPrefix=false) */
     private $name;
 
-    public function __construct($name = '')
+    public function __construct($name)
     {
         $this->name = new UserName($name);
     }

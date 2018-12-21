@@ -16,5 +16,5 @@ use Doctrine\ORM\Mapping as ORM;
 final class AnswerText extends Text
 {
     /** @ORM\Column(type="text",name="text") */
-    private $text;
+    protected $text;
 }

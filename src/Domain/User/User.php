@@ -53,7 +53,7 @@ class User
         $this->id = $id;
         $this->email = $email;
         $this->password = $password;
-        $this->profile = new UserProfile;
+        $this->profile = new UserProfile($email->email());
     }
 
     public function id(): Id
