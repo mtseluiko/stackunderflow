@@ -13,8 +13,8 @@ use App\Domain\Text;
 use Doctrine\ORM\Mapping as ORM;
 
 /** @ORM\Embeddable */
-class QuestionText extends Text
+final class QuestionText extends Text
 {
     /** @ORM\Column(type="text",name="text") */
-    protected $text;
+    private $text;
 }

@@ -11,12 +11,12 @@ namespace App\Domain;
 
 use App\Domain\Exception\TextIncorrectLengthException;
 
-class Text
+abstract class Text
 {
     const MIN_TEXT_LENGTH = 5;
     const MAX_TEXT_LENGTH = 1000;
 
-    protected $text;
+    private $text;
 
     public function __construct(string $text)
     {

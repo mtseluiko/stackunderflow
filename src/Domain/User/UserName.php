@@ -14,7 +14,7 @@ use App\Domain\Exception\UserNameIncorrectLengthException;
 use Doctrine\ORM\Mapping as ORM;
 
 /** @ORM\Embeddable */
-class UserName
+final class UserName
 {
     const MAX_USER_NAME_LENGTH = 20;
 

@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Validation;
 use Doctrine\ORM\Mapping as ORM;
 
 /** @ORM\Embeddable */
-class UserEmail
+final class UserEmail
 {
     /** @ORM\Column(type="string",name="email") */
     private $email;

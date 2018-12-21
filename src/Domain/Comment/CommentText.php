@@ -13,7 +13,7 @@ use App\Domain\Text;
 use Doctrine\ORM\Mapping as ORM;
 
 /** @ORM\Embeddable */
-class CommentText extends Text
+final class CommentText extends Text
 {
     /** @ORM\Column(type="text",name="text") */
     protected $text;

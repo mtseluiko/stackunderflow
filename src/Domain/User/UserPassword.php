@@ -11,7 +11,7 @@ namespace App\Domain\User;
 use Doctrine\ORM\Mapping as ORM;
 
 /** @ORM\Embeddable */
-class UserPassword
+final class UserPassword
 {
     /** @ORM\Column(type="string",name="password") */
     private $encryptedPassword;

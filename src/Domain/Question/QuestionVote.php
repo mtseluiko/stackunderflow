@@ -14,10 +14,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-class QuestionVote extends Vote
+final class QuestionVote extends Vote
 {
     /**
      * @ORM\ManyToOne(targetEntity="\App\Domain\Question\Question", inversedBy="questions")
      */
-    protected $answer;
+    private $question;
 }

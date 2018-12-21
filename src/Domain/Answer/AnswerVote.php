@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-class AnswerVote extends Vote
+final class AnswerVote extends Vote
 {
     /**
      * @ORM\ManyToOne(targetEntity="\App\Domain\Answer\Answer", inversedBy="answers")

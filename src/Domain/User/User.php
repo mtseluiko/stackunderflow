@@ -10,9 +10,11 @@ namespace App\Domain\User;
 
 
 use App\Domain\Answer\Answer;
+use App\Domain\Answer\AnswerVote;
 use App\Domain\Id;
 use App\Domain\Question\Question;
 use App\Domain\Comment\Comment;
+use App\Domain\Question\QuestionVote;
 use App\Domain\Vote;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -86,25 +88,25 @@ class User
 
     public function likeQuestion(Question $question): void
     {
-        $vote = new Vote($this, Vote::VOTE_LIKE_TYPE);
+        $vote = new QuestionVote($this, Vote::VOTE_LIKE_TYPE);
         $question->addVote($vote);
     }
 
     public function dislikeQuestion(Question $question): void
     {
-        $vote = new Vote($this, Vote::VOTE_DISLIKE_TYPE);
+        $vote = new QuestionVote($this, Vote::VOTE_DISLIKE_TYPE);
         $question->addVote($vote);
     }
 
     public function likeAnswer(Answer $answer): void
     {
-        $vote = new Vote($this, Vote::VOTE_LIKE_TYPE);
+        $vote = new AnswerVote($this, Vote::VOTE_LIKE_TYPE);
         $answer->addVote($vote);
     }
 
     public function dislikeAnswer(Answer $answer): void
     {
-        $vote = new Vote($this, Vote::VOTE_LIKE_TYPE);
+        $vote = new AnswerVote($this, Vote::VOTE_LIKE_TYPE);
         $answer->addVote($vote);
     }
 }

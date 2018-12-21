@@ -11,7 +11,7 @@ namespace App\Domain;
 use Doctrine\ORM\Mapping as ORM;
 
 /** @ORM\Embeddable */
-class Rating
+final class Rating
 {
     /** @ORM\Column(type="integer",name="rating") */
     private $rating;

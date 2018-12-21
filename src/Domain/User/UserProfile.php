@@ -11,7 +11,7 @@ namespace App\Domain\User;
 use Doctrine\ORM\Mapping as ORM;
 
 /** @ORM\Embeddable */
-class UserProfile
+final class UserProfile
 {
     /** @ORM\Embedded(class="UserName",columnPrefix=false) */
     private $name;
