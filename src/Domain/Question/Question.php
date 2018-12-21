@@ -38,6 +38,10 @@ class Question
 
     /** @ORM\Embedded(class="\App\Domain\Rating", columnPrefix=false) */
     private $rating;
+
+    /**
+     * @ORM\OneToMany(targetEntity="\App\Domain\Question\QuestionVote",mappedBy="question")
+     */
     private $votes;
 
     public function __construct(Id $id, QuestionText $text, User $author)

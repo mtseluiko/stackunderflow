@@ -36,6 +36,7 @@ abstract class Vote
      */
     private $user;
 
+    /** @ORM\Column(type="vote_type") */
     private $type;
 
     public function __construct(User $user, string $type)
