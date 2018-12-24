@@ -11,6 +11,7 @@ namespace App\Domain\Answer;
 
 use App\Domain\Exception\RateOwnAnswerException;
 use App\Domain\Id;
+use App\Domain\Question\Question;
 use App\Domain\Rating;
 use App\Domain\User\User;
 use App\Domain\Vote;
@@ -44,6 +45,11 @@ class Answer
      */
     private $votes;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="\App\Domain\Question\Question")
+     */
+    private $question;
+
     public function __construct(Id $id, AnswerText $text, User $author)
     {
         $this->id = $id;
@@ -66,6 +72,11 @@ class Answer
     public function author(): User
     {
         return $this->author;
+    }
+
+    public function question(): Question
+    {
+        return $this->question;
     }
 
     public function addVote(Vote $vote): void
