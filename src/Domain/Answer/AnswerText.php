@@ -9,7 +9,7 @@
 namespace App\Domain\Answer;
 
 
-use App\Domain\Text;
+use App\Domain\Shared\Text;
 use Doctrine\ORM\Mapping as ORM;
 
 /** @ORM\Embeddable */

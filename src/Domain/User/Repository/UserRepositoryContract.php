@@ -6,10 +6,11 @@
  * Time: 16:40
  */
 
-namespace App\Domain\User;
+namespace App\Domain\User\Repository;
 
 
-use App\Domain\Id;
+use App\Domain\Shared\Id;
+use App\Domain\User\User;
 
 interface UserRepositoryContract
 {

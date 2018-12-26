@@ -9,14 +9,18 @@
 namespace App\Domain\Comment;
 
 
-use App\Domain\Id;
+use App\Domain\Shared\Id;
 use App\Domain\User\User;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
- * @ORM\Entity(repositoryClass="App\Domain\Comment\CommentRepositoryContract")
+ * @ORM\Entity
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="parent_type", type="string")
+ * @ORM\DiscriminatorMap({"answer"="\App\Domain\Answer\AnswerComment", "question"="\App\Domain\Question\QuestionComment"})
  */
-class Comment
+abstract class Comment
 {
     /**
      * @ORM\Id

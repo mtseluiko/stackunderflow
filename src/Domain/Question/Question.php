@@ -10,10 +10,10 @@ namespace App\Domain\Question;
 
 
 use App\Domain\Exception\RateOwnQuestionException;
-use App\Domain\Id;
-use App\Domain\Rating;
+use App\Domain\Shared\Id;
+use App\Domain\Shared\Rating;
 use App\Domain\User\User;
-use App\Domain\Vote;
+use App\Domain\Shared\Vote;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,13 +36,18 @@ class Question
      */
     private $author;
 
-    /** @ORM\Embedded(class="\App\Domain\Rating", columnPrefix=false) */
+    /** @ORM\Embedded(class="\App\Domain\Shared\Rating", columnPrefix=false) */
     private $rating;
 
     /**
      * @ORM\OneToMany(targetEntity="\App\Domain\Question\QuestionVote",mappedBy="question")
      */
     private $votes;
+
+    /**
+     * @ORM\OneToMany(targetEntity="\App\Domain\Question\QuestionComment",mappedBy="question")
+     */
+    private $comments;
 
     public function __construct(Id $id, QuestionText $text, User $author)
     {
@@ -76,10 +81,10 @@ class Question
 
         switch ($vote->type()) {
             case Vote::VOTE_LIKE_TYPE:
-                $this->rating->increase();
+                $this->rating = $this->rating->increase();
                 break;
             case Vote::VOTE_DISLIKE_TYPE:
-                $this->rating->decrease();
+                $this->rating = $this->rating->decrease();
                 break;
         }
 

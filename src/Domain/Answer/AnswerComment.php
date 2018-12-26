@@ -8,13 +8,13 @@
 
 namespace App\Domain\Answer;
 
-use App\Domain\Shared\Vote;
+use App\Domain\Comment\Comment;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
  */
-final class AnswerVote extends Vote
+final class AnswerComment extends Comment
 {
     /**
      * @ORM\ManyToOne(targetEntity="\App\Domain\Answer\Answer", inversedBy="answers")
