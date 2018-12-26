@@ -6,7 +6,7 @@
  * Time: 16:26
  */
 
-namespace App\Domain;
+namespace App\Domain\Shared;
 
 
 use App\Domain\Exception\IncorrectVoteTypeException;

@@ -9,9 +9,9 @@
 namespace App\Infrastructure\Persistence\MySQLDoctrine;
 
 
-use App\Domain\Id;
+use App\Domain\Shared\Id;
 use App\Domain\User\User;
-use App\Domain\User\UserRepositoryContract;
+use App\Domain\User\Repository\UserRepositoryContract;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 

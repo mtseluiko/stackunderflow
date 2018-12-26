@@ -11,15 +11,15 @@ namespace App\Domain\User;
 
 use App\Domain\Answer\Answer;
 use App\Domain\Answer\AnswerVote;
-use App\Domain\Id;
+use App\Domain\Shared\Id;
 use App\Domain\Question\Question;
 use App\Domain\Comment\Comment;
 use App\Domain\Question\QuestionVote;
-use App\Domain\Vote;
+use App\Domain\Shared\Vote;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Domain\User\UserRepositoryContract")
+ * @ORM\Entity(repositoryClass="App\Domain\User\Repository\UserRepositoryContract")
  */
 class User
 {
@@ -79,6 +79,11 @@ class User
     public function answers(): array
     {
         return $this->answers;
+    }
+
+    public function profile(): UserProfile
+    {
+        return $this->profile;
     }
 
     public function isEqualsTo(self $user): bool

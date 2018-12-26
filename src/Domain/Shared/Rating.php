@@ -6,7 +6,7 @@
  * Time: 14:57
  */
 
-namespace App\Domain;
+namespace App\Domain\Shared;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,13 +31,19 @@ final class Rating
         return $this->rating() === $rating->rating();
     }
 
-    public function increase(): void
+    public function increase(): self
     {
-        $this->rating += 1;
+        $rating = new Rating();
+        $rating->rating = $this->rating() + 1;
+
+        return $rating;
     }
 
-    public function decrease(): void
+    public function decrease(): self
     {
-        $this->rating -= 1;
+        $rating = new Rating();
+        $rating->rating = $this->rating() - 1;
+
+        return $rating;
     }
 }

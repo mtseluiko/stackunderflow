@@ -6,7 +6,7 @@
  * Time: 14:44
  */
 
-namespace App\Domain;
+namespace App\Domain\Shared;
 
 
 use App\Domain\Exception\InvalidIdException;

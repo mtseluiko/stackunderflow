@@ -6,7 +6,7 @@
  * Time: 14:47
  */
 
-namespace App\Domain;
+namespace App\Domain\Shared;
 
 
 use App\Domain\Exception\TextIncorrectLengthException;
