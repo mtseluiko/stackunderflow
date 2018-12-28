@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Domain\Question\QuestionRepositoryContract")
  */
-class Question
+class Question //Aggregate root
 {
     /**
      * @ORM\Id
@@ -48,6 +48,11 @@ class Question
      * @ORM\OneToMany(targetEntity="\App\Domain\Question\QuestionComment",mappedBy="question")
      */
     private $comments;
+
+    /**
+     * @ORM\OneToMany(targetEntity="\App\Domain\Answer\Answer",mappedBy="question")
+     */
+    private $answers;
 
     public function __construct(Id $id, QuestionText $text, User $author)
     {
@@ -89,5 +94,15 @@ class Question
         }
 
         $this->votes[] = $vote;
+    }
+
+    public function answers(): array
+    {
+        return $this->answers;
+    }
+
+    public function editText(QuestionText $text): void
+    {
+        $this->text = $text;
     }
 }
